@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventHorizon.Migrations.EventHorizonIdentity
 {
     [DbContext(typeof(EventHorizonIdentityContext))]
-    [Migration("20210402065534_FirstIdentityMigration")]
-    partial class FirstIdentityMigration
+    [Migration("20210402070409_firstMigration")]
+    partial class firstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

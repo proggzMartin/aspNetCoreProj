@@ -35,11 +35,12 @@ namespace EventHorizon
 
             services.AddDbContext<EventHorizonContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("EventHorizonContext")));
+
             services.AddDbContext<EventHorizonIdentityContext>(o =>
                     o.UseSqlServer(Configuration.GetConnectionString("EventHorizonIdentityContext")));
 
             services.AddIdentity<IdentityUser, IdentityRole>()
-                    .AddEntityFrameworkStores<EventHorizonContext>(); //this dbContext will retrieve user and roleinfo.
+                    .AddEntityFrameworkStores<EventHorizonIdentityContext>(); //this dbContext will retrieve user and roleinfo.
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
