@@ -31,7 +31,7 @@ namespace EventHorizon
                 o.Conventions.AddPageRoute("/Index", "home"); //If user tyoe this, should get to index.
                 o.Conventions.AddPageRoute("/Index", "EventHorizon");
 
-            });
+            }).AddRazorRuntimeCompilation();
 
             services.AddDbContext<EventHorizonContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("EventHorizonContext")));

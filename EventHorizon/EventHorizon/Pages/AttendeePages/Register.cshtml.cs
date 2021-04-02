@@ -11,11 +11,7 @@ namespace EventHorizon.Pages.AttendeePages
         private readonly EventHorizonContext _context;
 
         [BindProperty]
-        public Attendee Attendee { get; set; }
-
-
-        public string ErrorMessage { get; } = "Form contained errors, please correct and try again";
-        public bool FormError { get; set; }
+        public RegisterViewModel RegisterViewModel { get; set; }
 
         public RegisterModel(EventHorizonContext context)
         {
@@ -33,16 +29,17 @@ namespace EventHorizon.Pages.AttendeePages
         {
             if (ModelState.IsValid)
             {
-                _context.Attendee.Add(Attendee);
-                _context.SaveChanges();
+                //_context.Attendee.Add(Attendee);
+                //_context.SaveChanges();
 
-                return new RedirectToPageResult("/Confirmation", "Registration") ;
+                //return new RedirectToPageResult("/Confirmation", "Registration") ;
             }
             else
             {
-                FormError = true;
-                return Page();
+
             }
+            return Page();
+
         }
 
         //Convention: OnPostFeedback - Feedback is the same as 'asp-page-handler="Feedback"' in the page.

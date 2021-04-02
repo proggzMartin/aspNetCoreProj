@@ -9,12 +9,6 @@
 
 <h4>Attendee</h4>
 <hr />
-
-@if (!string.IsNullOrEmpty(Model.ErrorMessage) && Model.FormError)
-{
-    <div class="alert alert-danger">@Model.ErrorMessage</div>
-
-}
 <div class="row">
     <div class="col-md-4">
         <form asp-page="Register" method="post">
@@ -22,19 +16,19 @@
                 @* asp-for, taghelper för modelbinding. asp-for avgör också TYPEN av input baserat på
                     typen Attendee.Name har.
                 *@
-                <label asp-for="Attendee.FullName"></label>
-                <input asp-for="Attendee.FullName" class="form-control" />
-                <span asp-validation-for="Attendee.FullName" class="text-danger"></span>
+                <label asp-for="RegisterViewModel.Email"></label>
+                <input asp-for="RegisterViewModel.Email" class="form-control" />
+                <span asp-validation-for="RegisterViewModel.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Attendee.Email">Epost</label>
-                <input asp-for="Attendee.Email" class="form-control" />
-                <span asp-validation-for="Attendee.Email" class="text-danger"></span>
+                <label asp-for="RegisterViewModel.Password">Epost</label>
+                <input asp-for="RegisterViewModel.Password" class="form-control" />
+                <span asp-validation-for="RegisterViewModel.Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Attendee.PhoneNumber">Telefon</label>
-                <input asp-for="Attendee.PhoneNumber" class="form-control" />
-                <span asp-validation-for="Attendee.PhoneNumber" class="text-danger"></span>
+                <label asp-for="RegisterViewModel.ConfirmPassword">Telefon</label>
+                <input asp-for="RegisterViewModel.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="RegisterViewModel.ConfirmPassword" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Register"/>
@@ -42,7 +36,6 @@
         </form>
     </div>
 </div>
-
 <div class="row">
     <div class="col-md-4">
         @* Convention_ Feedback siktar på OnPostFeedback. *@
