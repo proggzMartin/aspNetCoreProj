@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using EventHorizon.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace EventHorizon
 {
@@ -34,6 +35,8 @@ namespace EventHorizon
 
             services.AddDbContext<DataContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("EventHorizonContext")));
+
+            services.AddIdentity<IdentityUser, IdentityRole>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
