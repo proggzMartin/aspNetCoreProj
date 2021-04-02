@@ -8,7 +8,7 @@ namespace EventHorizon.Pages.AttendeePages
 {
     public class RegisterModel : PageModel
     {
-        private readonly DataContext _context;
+        private readonly EventHorizonContext _context;
 
         [BindProperty]
         public Attendee Attendee { get; set; }
@@ -17,7 +17,7 @@ namespace EventHorizon.Pages.AttendeePages
         public string ErrorMessage { get; } = "Form contained errors, please correct and try again";
         public bool FormError { get; set; }
 
-        public RegisterModel(DataContext context)
+        public RegisterModel(EventHorizonContext context)
         {
             _context = context;
         }

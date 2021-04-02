@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EventHorizon.Migrations
 {
-    [DbContext(typeof(DataContext))]
+    [DbContext(typeof(EventHorizonContext))]
     partial class EventHorizonContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

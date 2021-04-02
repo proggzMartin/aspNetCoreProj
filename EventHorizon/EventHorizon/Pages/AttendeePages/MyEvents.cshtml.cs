@@ -12,9 +12,9 @@ namespace EventHorizon.Pages.AttendeePages
 {
     public class MyEventsModel : PageModel
     {
-        private readonly EventHorizon.Data.DataContext _context;
+        private readonly EventHorizon.Data.EventHorizonContext _context;
 
-        public MyEventsModel(EventHorizon.Data.DataContext context)
+        public MyEventsModel(EventHorizon.Data.EventHorizonContext context)
         {
             _context = context;
         }

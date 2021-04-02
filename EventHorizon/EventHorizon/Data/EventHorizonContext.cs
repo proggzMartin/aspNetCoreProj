@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace EventHorizon.Data
 {
-    public class DataContext : IdentityDbContext
+    public class EventHorizonContext : DbContext
     {
-        public DataContext (DbContextOptions<DataContext> options)
+        public EventHorizonContext (DbContextOptions<EventHorizonContext> options)
             : base(options)
         {
         }
@@ -18,7 +18,6 @@ namespace EventHorizon.Data
         public DbSet<Event> Event { get; set; }
         public DbSet<Attendee> Attendee { get; set; }
         public DbSet<Organizer> Organizer { get; set; }
-
         public DbSet<UserFeedback> UserFeedback { get; set; }
     }
 }

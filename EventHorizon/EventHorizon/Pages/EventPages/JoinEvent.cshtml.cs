@@ -24,9 +24,9 @@ namespace EventHorizon.Pages.EventPages
         public bool Joined { get; set; }
 
 
-        private readonly DataContext _context;
+        private readonly EventHorizonContext _context;
 
-        public JoinEvent(DataContext context)
+        public JoinEvent(EventHorizonContext context)
         {
             _context = context;
         }

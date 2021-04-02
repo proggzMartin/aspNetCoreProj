@@ -13,9 +13,9 @@ namespace EventHorizon.Pages.EventPages
 {
     public class EditModel : PageModel
     {
-        private readonly EventHorizon.Data.DataContext _context;
+        private readonly EventHorizon.Data.EventHorizonContext _context;
 
-        public EditModel(EventHorizon.Data.DataContext context)
+        public EditModel(EventHorizon.Data.EventHorizonContext context)
         {
             _context = context;
         }
