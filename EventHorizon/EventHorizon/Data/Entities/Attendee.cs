@@ -4,8 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EventHorizon.Data.Entities
 {
-    public class Attendee : IdentityUser
+    public class Attendee //: IdentityUser messes up primary key, will have to look at this later.
     {
+        [Key]
         public int Id { get; set; }
 
         /* 
@@ -17,9 +18,9 @@ namespace EventHorizon.Data.Entities
         public string FullName { get; set; }
 
         [Required, EmailAddress]
-        public override string Email { get; set; }
+        public string Email { get; set; }
         [Required, Phone]
-        public override string PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         public ICollection<Event> Event { get; set; }
 
