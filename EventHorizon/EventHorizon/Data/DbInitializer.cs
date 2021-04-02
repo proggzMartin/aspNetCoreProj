@@ -28,7 +28,7 @@ namespace EventHorizon.Data
                     {
                         context.Attendee.Add(new Attendee()
                         {
-                            Name = firstName + " " + lastName,
+                            FullName = firstName + " " + lastName,
                             Email = firstName + "." + lastName + "@email.com",
                             Phone = r.Next(11111, 99999).ToString()
                         }); ; 
