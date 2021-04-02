@@ -22,9 +22,9 @@
                 @* asp-for, taghelper för modelbinding. asp-for avgör också TYPEN av input baserat på
                     typen Attendee.Name har.
                 *@
-                <label asp-for="Attendee.Name"></label>
-                <input asp-for="Attendee.Name" class="form-control" />
-                <span asp-validation-for="Attendee.Name" class="text-danger"></span>
+                <label asp-for="Attendee.FullName"></label>
+                <input asp-for="Attendee.FullName" class="form-control" />
+                <span asp-validation-for="Attendee.FullName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Attendee.Email">Epost</label>
@@ -32,9 +32,9 @@
                 <span asp-validation-for="Attendee.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Attendee.Phone">Telefon</label>
-                <input asp-for="Attendee.Phone" class="form-control" />
-                <span asp-validation-for="Attendee.Phone" class="text-danger"></span>
+                <label asp-for="Attendee.PhoneNumber">Telefon</label>
+                <input asp-for="Attendee.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Attendee.PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Register"/>
