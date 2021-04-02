@@ -36,7 +36,8 @@ namespace EventHorizon
             services.AddDbContext<DataContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("EventHorizonContext")));
 
-            services.AddIdentity<IdentityUser, IdentityRole>();
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                    .AddEntityFrameworkStores<DataContext>(); //this dbContext will retrieve user and roleinfo.
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,7 +59,8 @@ namespace EventHorizon
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseAuthentication();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
