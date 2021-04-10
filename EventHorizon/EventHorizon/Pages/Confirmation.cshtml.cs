@@ -13,6 +13,12 @@ namespace EventHorizon.Pages
         public string Message { get; set; }
         public void OnGet()
         {
+
+        }
+
+        public void OnPostLogout()
+        {
+
         }
 
 

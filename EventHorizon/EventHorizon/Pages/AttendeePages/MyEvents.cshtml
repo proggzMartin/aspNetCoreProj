@@ -14,28 +14,15 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Attendee[0].FullName)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Attendee[0].Email)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Attendee[0].PhoneNumber)
-            </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.Attendee) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
