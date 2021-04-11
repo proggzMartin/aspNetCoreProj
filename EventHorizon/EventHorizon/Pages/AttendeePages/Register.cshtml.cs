@@ -47,7 +47,8 @@ namespace EventHorizon.Pages.AttendeePages
 
                     //isPersistent sets if we want to store a session-cookie at user webbrowser or a 'permanent' cookie.
                     //We want session, so isPersistent is set to false.
-                    await _signInManager.SignInAsync(newUser, isPersistent: false);
+
+                    //await _signInManager.SignInAsync(newUser, isPersistent: false); <-- LOGIN men vill göra det separat.
 
 
                     //Skulle kunna använda "tempdata" istället för RedirectToPage med 

@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace EventHorizon.Pages.AttendeePages
 {
-    public class RegisterViewModel : LoginViewModel
+    public class LoginViewModel
     {
+        [Required, EmailAddress]
+        public string Email { get; set; }
+
         [Required, DataType(DataType.Password)]
-        [Display(Name = "Confirm Password")] //display this instead of ConfirmPassword in one word.
-        public string ConfirmPassword { get; set; }
+        public string Password { get; set; }
     }
 }
