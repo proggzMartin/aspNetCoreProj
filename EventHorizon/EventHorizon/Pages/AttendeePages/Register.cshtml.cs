@@ -30,8 +30,6 @@ namespace EventHorizon.Pages.AttendeePages
             return Page();
         }
 
-
-        //// To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid)
@@ -44,29 +42,32 @@ namespace EventHorizon.Pages.AttendeePages
 
                 var result = await _userManager.CreateAsync(newUser, RegisterViewModel.Password); //The password is hashed and stored.
 
-                if(result.Succeeded)
+                if (result.Succeeded)
                 {
 
                     //isPersistent sets if we want to store a session-cookie at user webbrowser or a 'permanent' cookie.
                     //We want session, so isPersistent is set to false.
                     await _signInManager.SignInAsync(newUser, isPersistent: false);
 
-                    return RedirectToPage("/Confirmation", "Registration", "OBJECT", "RegistrationCompleted");
+
+                    //Skulle kunna använda "tempdata" istället för RedirectToPage med 
+                    //dynamiskt objekt.
+                    return RedirectToPage(
+                        "/Confirmation",
+                        "Registration",
+                        new { Input = RegisterViewModel.Email }, //https://learningprogramming.net/net/asp-net-core-razor-pages/redirect-to-page-in-asp-net-core-razor-pages/
+                        "RegistrationCompleted");
                 }
 
                 //If there were errors, loop through them.
-                foreach (var error in result.Errors) 
+                foreach (var error in result.Errors)
                 {
                     //Add them to the modelstate.
-                    ModelState.AddModelError("", error.Description); 
+                    ModelState.AddModelError("", error.Description);
                 }
             }
-            else
-            {
 
-            }
             return Page();
-
         }
 
         //Convention: OnPostFeedback - Feedback is the same as 'asp-page-handler="Feedback"' in the page.

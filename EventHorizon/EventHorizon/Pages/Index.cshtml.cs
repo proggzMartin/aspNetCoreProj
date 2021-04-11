@@ -17,14 +17,9 @@ namespace EventHorizon.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-
-        }
-
-        public void hej()
-        {
-
+            return RedirectToPage("/Confirmation");
         }
     }
 }
