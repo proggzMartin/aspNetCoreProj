@@ -1,4 +1,34 @@
-﻿@page
+﻿@page "Login"
 @model EventHorizon.Pages.AttendeePages.LoginModel
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<IdentityUser> signInManager;
 
+@if (signInManager.IsSignedIn(User))
+{
+    <h3>You are already logged in and shouldn't be here.</h3>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <h1>Login</h1>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <form method="post">
+                <div class="form-group">
+                    <label asp-for="LoginViewModel.Email"></label>
+                    <input asp-for="LoginViewModel.Email" class="form-control" value="" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="LoginViewModel.Password"></label>
+                    <input asp-for="LoginViewModel.Password" class="form-control" value="" />
+                </div>
 
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Login" />
+                    <a asp-for="/Register" class="btn btn-secondary text-white">Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
+}
