@@ -46,15 +46,12 @@ namespace EventHorizon.Pages.AttendeePages
 
                 if(result.Succeeded)
                 {
-                    //redirect to success.
-                    //Email user.
-                    //Brew coffe
 
                     //isPersistent sets if we want to store a session-cookie at user webbrowser or a 'permanent' cookie.
                     //We want session, so isPersistent is set to false.
                     await _signInManager.SignInAsync(newUser, isPersistent: false);
 
-                    return RedirectToPage("/Confirmation", "Registration");
+                    return RedirectToPage("/Confirmation", "Registration", "OBJECT", "RegistrationCompleted");
                 }
 
                 //If there were errors, loop through them.

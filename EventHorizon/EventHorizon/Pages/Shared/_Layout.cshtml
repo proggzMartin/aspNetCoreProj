@@ -41,20 +41,17 @@
                             <a class="nav-link text-dark" asp-page="/EventPages/Events">Events</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-page="/AttendeePages/MyEvents">My Events</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-page="/AttendeePages/Register">Register</a>
                         </li>
                     @if(signinManager.IsSignedIn(User)) //User är något inbyggt i kulisserna man nyttjar (?)
                     {
                         <li>
-                            <a class="nav-link text-dark" asp-page="/Confirmation">Logout</a>
+                            <a class="nav-link text-dark" asp-page="/Confirmation" asp-route-Message="Logout button pressed">Logout</a>
                         </li>
                     } else
                     {
                         <li>
-                            <a class="nav-link text-dark" asp-page="/AttendeePages/Register">Login</a>
+                            <a class="nav-link text-dark" asp-page="/Confirmation" asp-route-Message="Login button pressed">Login</a>
                         </li>
                     }
                     </ul>
