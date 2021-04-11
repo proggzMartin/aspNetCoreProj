@@ -1,29 +1,41 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace EventHorizon.Pages
 {
+    public enum ConfirmationType
+    {
+        Registration,
+        Feedback
+    }
+
     public class ConfirmationModel : PageModel
     {
+        [BindProperty(SupportsGet = true)]
+        public string Input { get; set; }
 
-        public string Message { get; set; }
-        public void OnGet()
+        public string DisplayMessage { get; set; }
+
+        public ConfirmationType? confType { get; set; }
+
+
+        public IActionResult OnGet()
         {
+            return Page();
         }
 
-
-        public void OnGetRegistration()
+        public IActionResult OnGetRegistration()
         {
-            Message = "The user were successfully registered.";
+            confType = ConfirmationType.Registration;
+            DisplayMessage = $"New user with email <b><u>{Input}</u></b> has been created.";
+            return Page();
         }
 
-        public void OnGetFeedback()
+        public IActionResult OnGetFeedback()
         {
-            Message = "Thank you for taking time providing us with feedback!";
+            confType = ConfirmationType.Feedback;
+            return Page();
         }
     }
 }

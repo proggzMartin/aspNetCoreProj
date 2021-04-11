@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<IdentityUser> signinManager;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -32,17 +35,25 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link text-dark" asp-page="/Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/EventPages/Events">Events</a>
+                            <a class="nav-link text-dark" asp-page="/EventPages/Events">Events</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AttendeePages/MyEvents">My Events</a>
+                            <a class="nav-link text-dark" asp-page="/AttendeePages/Register">Register</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AttendeePages/Register">Register</a>
+                    @if(signinManager.IsSignedIn(User)) //User är något inbyggt i kulisserna man nyttjar (?)
+                    {
+                        <li>
+                            <a class="nav-link text-dark" asp-page="/Confirmation" asp-route-Message="Logout button pressed">Logout</a>
                         </li>
+                    } else
+                    {
+                        <li>
+                            <a class="nav-link text-dark" asp-page="/Confirmation" asp-route-Message="Login button pressed">Login</a>
+                        </li>
+                    }
                     </ul>
                 </div>
             </div>

@@ -28,9 +28,7 @@ namespace EventHorizon.Data
                     {
                         context.Attendee.Add(new Attendee()
                         {
-                            FullName = firstName + " " + lastName,
                             Email = firstName + "." + lastName + "@email.com",
-                            PhoneNumber = r.Next(11111, 99999).ToString()
                         }); ; 
                     }
                 }

@@ -14,13 +14,14 @@ namespace EventHorizon.Data.Entities
             finns en post där dessa kommer till hands och validerar fälten.
             Även i codebehind när ModelState.Valid körs, returnar det true om att nedan attribute's uppfylls.
          */
-        [Required, MinLength(2)]
-        public string FullName { get; set; }
 
         [Required, EmailAddress]
         public string Email { get; set; }
-        [Required, Phone]
-        public string PhoneNumber { get; set; }
+
+        [Required]
+        public string Password { get; set; }
+
+
 
         public ICollection<Event> Event { get; set; }
 

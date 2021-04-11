@@ -38,9 +38,6 @@ namespace EventHorizon.Pages.EventPages
                 return NotFound();
             }
 
-            //Det är ett medvetet dumt val att query:a på eventTitle eftersom den inte är
-            //nödvändigtvis unik, men ville testa något nytt
-            //(får annan route till sidan)
             Event = await _context.Event
                 .Include(x => x.Organizer).FirstOrDefaultAsync(m => m.Id.Equals(id));
 
