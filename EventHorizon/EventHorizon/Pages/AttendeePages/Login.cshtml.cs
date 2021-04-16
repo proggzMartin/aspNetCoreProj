@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -10,15 +7,18 @@ namespace EventHorizon.Pages.AttendeePages
 {
     public class LoginModel : PageModel
     {
+
+        
         [BindProperty]
         public LoginViewModel LoginViewModel { get; set; }
+
         SignInManager<IdentityUser> _signInManager;
         public LoginModel(SignInManager<IdentityUser> signInManager)
         {
             _signInManager = signInManager;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(string email)
         {
             return Page();
         }
@@ -42,7 +42,6 @@ namespace EventHorizon.Pages.AttendeePages
 
                 ModelState.AddModelError("IncorrectPassword", "Email or password was incorrect, please try again.");
             }
-                
             return Page();
         }
     }
